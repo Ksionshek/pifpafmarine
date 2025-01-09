@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7tj7hq7a3bqj"]
+
+[ext_resource type="Texture2D" uid="uid://dgodnlbp85pq6" path="res://kenney_space-shooter-redux/Backgrounds/blue.png" id="1_nu2m4"]
+[ext_resource type="PackedScene" uid="uid://b5fr5w7bkeglh" path="res://scenes/Levels/Level1/level_1.tscn" id="2_nd7c7"]
+
+[node name="Game" type="Node"]
+
+[node name="Cameras" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Cameras"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nu2m4")
+
+[node name="CurrentLevel" type="Node2D" parent="."]
+
+[node name="Level1" parent="CurrentLevel" instance=ExtResource("2_nd7c7")]
+position = Vector2(474, 312)
