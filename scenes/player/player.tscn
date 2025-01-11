@@ -1,16 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://cw0tghuh4cny1"]
 
 [ext_resource type="Texture2D" uid="uid://dsfseu8tw37e2" path="res://kenney_space-shooter-redux/PNG/playerShip2_orange.png" id="1_ari5f"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oq3eq"]
-size = Vector2(36.3333, 24.3333)
+[ext_resource type="Script" path="res://scripts/Player/movement.gd" id="2_3ymq3"]
 
 [node name="Player" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ari5f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.500001, 0.500001)
-scale = Vector2(3, 3)
-shape = SubResource("RectangleShape2D_oq3eq")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-5, -37)
+polygon = PackedVector2Array(2, 0, 8, 0, 19, 23, 61, 42, 43, 72, 21, 66, 17, 74, -7, 75, -11, 67, -32, 71, -51, 43, -6, 18)
+
+[node name="PlayerMovment" type="Node2D" parent="."]
+script = ExtResource("2_3ymq3")
+speed = 500
