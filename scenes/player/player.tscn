@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cw0tghuh4cny1"]
+[gd_scene load_steps=4 format=3 uid="uid://cw0tghuh4cny1"]
 
 [ext_resource type="Texture2D" uid="uid://dsfseu8tw37e2" path="res://kenney_space-shooter-redux/PNG/playerShip2_orange.png" id="1_ari5f"]
 [ext_resource type="Script" path="res://scripts/Player/movement.gd" id="2_3ymq3"]
+[ext_resource type="Script" path="res://scripts/Player/health.gd" id="3_e0xhp"]
 
 [node name="Player" type="CharacterBody2D"]
 
@@ -15,3 +16,6 @@ polygon = PackedVector2Array(2, 0, 8, 0, 19, 23, 61, 42, 43, 72, 21, 66, 17, 74,
 [node name="PlayerMovment" type="Node2D" parent="."]
 script = ExtResource("2_3ymq3")
 speed = 500
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("3_e0xhp")

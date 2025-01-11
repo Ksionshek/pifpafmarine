@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5fr5w7bkeglh"]
+[gd_scene load_steps=4 format=3 uid="uid://b5fr5w7bkeglh"]
 
+[ext_resource type="PackedScene" uid="uid://b46fjjxng2sxc" path="res://scenes/Enemies/Meteor/meteor.tscn" id="1_1nny8"]
 [ext_resource type="PackedScene" uid="uid://cw0tghuh4cny1" path="res://scenes/player/player.tscn" id="1_tg701"]
 [ext_resource type="Texture2D" uid="uid://dgodnlbp85pq6" path="res://kenney_space-shooter-redux/Backgrounds/blue.png" id="2_l2t3b"]
 
 [node name="Level1" type="Node2D"]
 position = Vector2(581, 347)
+
+[node name="Meteor" parent="." instance=ExtResource("1_1nny8")]
+position = Vector2(-289, -89)
 
 [node name="Player" parent="." instance=ExtResource("1_tg701")]
 
