@@ -27,3 +27,4 @@ func initialize_game() -> void:
 func _ready() -> void:
 	print('GM ready')
 	initialize_game()
+	

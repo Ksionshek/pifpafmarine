@@ -1,4 +1,4 @@
-extends Node2D
+class_name PlayerHeath extends Node2D
  
 var l_hp := 100
 var player: CharacterBody2D 

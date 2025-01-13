@@ -1,12 +1,12 @@
 class_name e_HealthComponent extends Node2D
 
-@export var entity := Area2D
+var entity
 @export var hp := 10
 @export var max_health := 10
 
 func _ready() -> void:
-	hp = max_health
-	
+	#hp = max_health
+	entity = get_parent()
 	
 func take_damage(amount: int):
 	hp -= amount

@@ -1,13 +1,17 @@
-extends Node2D
+class_name e_MovementComponent extends Node2D
 
 
-@export var speed : float = 100.0
+@export var speed : float = 300.0
 var velocity : Vector2 = Vector2.ZERO
+
+
 
 # Funkcja odpowiedzialna za ruch
 func move(delta: float):
-	position += velocity * delta
+	get_parent().position += velocity * delta
+	#print("Position: ", position, " Velocity: ", velocity)
 
 # Funkcja aktualizująca kierunek ruchu
 func update_velocity(direction: Vector2):
 	velocity = direction.normalized() * speed
+	#print("Updated Velocity: ", velocity)

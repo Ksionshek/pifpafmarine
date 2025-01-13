@@ -1,19 +1,17 @@
 # meteor.gd - Main script
-extends Node2D
+class_name Meteor extends Node2D
 
-@export var damage : int = 10  
+@export var damage : int = 10
 
 # All components 
-var movement : Node
-var health : Node
-var ai : Node
+@onready var move_component: Node2D = $E_MovementComponent
+@onready var health_component: Node2D = $E_HealthComponent
+@onready var ai_component: Node2D = $E_AI
 
-func _ready():
-	movement = $E_MovementComponent 
-	health = $E_HealthComponent    
-	ai = $E_AI             
-
+#TODO health_component
 
 func _process(delta):
-	ai.update(delta)  # Zaktualizuj AI
-	movement.move(delta)  # Zaktualizuj ruch
+	print("Before AI Update")
+	ai_component.update(delta)  # Zaktualizuj AI
+	print("Before MoveComponent Move")
+	move_component.move(delta)  # Zaktualizuj ruch

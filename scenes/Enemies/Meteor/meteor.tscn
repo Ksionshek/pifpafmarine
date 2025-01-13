@@ -2,14 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://b7jx1ncoft614" path="res://kenney_space-shooter-redux/PNG/Meteors/meteorGrey_big4.png" id="1_p45ip"]
 [ext_resource type="Script" path="res://scripts/Enemies/Meteor/meteor.gd" id="1_ybnab"]
-[ext_resource type="Script" path="res://scripts/Enemies/Components/e_health_component.gd" id="2_m74a0"]
-[ext_resource type="Script" path="res://scripts/Enemies/Components/e_movement_component.gd" id="3_bp8ie"]
-[ext_resource type="Script" path="res://scripts/Enemies/Components/e_ai_meteor.gd" id="4_g1fxn"]
+[ext_resource type="PackedScene" uid="uid://cvimvj0644pi6" path="res://scenes/Enemies/Components/e_health_component.tscn" id="3_h3qte"]
+[ext_resource type="PackedScene" uid="uid://c0d1mipjimv7p" path="res://scenes/Enemies/Components/e_movement_component.tscn" id="4_6sgyw"]
+[ext_resource type="PackedScene" uid="uid://dpa2cinwc8km0" path="res://scenes/Enemies/Components/e_ai.tscn" id="5_18ean"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oriex"]
 radius = 42.4264
 
 [node name="Meteor" type="Area2D"]
+collision_layer = 4
+collision_mask = 10
 script = ExtResource("1_ybnab")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -18,12 +20,8 @@ texture = ExtResource("1_p45ip")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_oriex")
 
-[node name="E_HealthComponent" type="Node2D" parent="." node_paths=PackedStringArray("entity")]
-script = ExtResource("2_m74a0")
-entity = NodePath("..")
+[node name="E_AI" parent="." instance=ExtResource("5_18ean")]
 
-[node name="E_MovementComponent" type="Node2D" parent="."]
-script = ExtResource("3_bp8ie")
+[node name="E_HealthComponent" parent="." instance=ExtResource("3_h3qte")]
 
-[node name="E_AI" type="Node2D" parent="."]
-script = ExtResource("4_g1fxn")
+[node name="E_MovementComponent" parent="." instance=ExtResource("4_6sgyw")]
