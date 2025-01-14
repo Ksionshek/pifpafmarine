@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw0tghuh4cny1"]
+[gd_scene load_steps=7 format=3 uid="uid://cw0tghuh4cny1"]
 
 [ext_resource type="Texture2D" uid="uid://dsfseu8tw37e2" path="res://kenney_space-shooter-redux/PNG/playerShip2_orange.png" id="1_ari5f"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_wq5xx"]
 [ext_resource type="Script" path="res://scripts/Player/movement.gd" id="2_3ymq3"]
 [ext_resource type="PackedScene" uid="uid://bj4fec0dyc28f" path="res://scenes/player/Mouse/mouse_rotation_component.tscn" id="3_4py4s"]
 [ext_resource type="Script" path="res://scripts/Player/health.gd" id="3_e0xhp"]
+[ext_resource type="PackedScene" uid="uid://cwy3ch7eyvca2" path="res://scenes/Enemies/Components/weapon_component.tscn" id="5_xst3y"]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 53
+script = ExtResource("1_wq5xx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ari5f")
@@ -19,9 +22,12 @@ polygon = PackedVector2Array(-4, -34, 3, -36, 10, -18, 56, 6, 38, 36, 18, 31, 11
 
 [node name="PlayerMovment" type="Node2D" parent="."]
 script = ExtResource("2_3ymq3")
-speed = 500
+speed = 600
 
 [node name="MouseRotationComponent" parent="." instance=ExtResource("3_4py4s")]
 
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("3_e0xhp")
+
+[node name="WeaponComponent" parent="." instance=ExtResource("5_xst3y")]
+position = Vector2(0, -40)

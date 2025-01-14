@@ -11,7 +11,6 @@ func _process(delta: float) -> void:
 	var direction_to_mouse = (mouse_position - global_position).normalized()
 	var angle_to_mouse = direction_to_mouse.angle() + deg_to_rad(90)
 
-
 	#Rotate player to mouse - adding lerp for smoothing
 	get_parent().rotation = lerp_angle(get_parent().rotation, angle_to_mouse, rotation_speed * delta)
 	

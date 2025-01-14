@@ -3,7 +3,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Add enemy to the scene and set all his components. Need to fix that a bit
-	#summonMeteor()
+	summonMeteor()
 	pass
 
 

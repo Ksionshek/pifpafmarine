@@ -1,5 +1,5 @@
 # meteor.gd - Main script
-class_name Meteor extends Node2D
+class_name Meteor extends Area2D
 
 @export var damage : int = 10
 

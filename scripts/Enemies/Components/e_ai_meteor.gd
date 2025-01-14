@@ -23,4 +23,5 @@ func update(delta: float):
 			print("AI: update_volocity")
 			move_component.update_velocity(direction_to_player)
 		else:
+			#TODO what will do if out of range
 			move_component.update_velocity(Vector2.ZERO)

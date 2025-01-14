@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://bm1rijvmpul7u"]
+
+[ext_resource type="Texture2D" uid="uid://c34rhi7c7h0ji" path="res://kenney_space-shooter-redux/PNG/Lasers/laserBlue15.png" id="1_66xit"]
+[ext_resource type="Script" path="res://scripts/Bullets/bullet.gd" id="1_txtm8"]
+[ext_resource type="PackedScene" uid="uid://dpa2cinwc8km0" path="res://scenes/Enemies/Components/e_ai.tscn" id="2_11gub"]
+[ext_resource type="PackedScene" uid="uid://4m08blufnwg2" path="res://scenes/Enemies/Components/damage_component.tscn" id="2_aeimx"]
+[ext_resource type="PackedScene" uid="uid://c0d1mipjimv7p" path="res://scenes/Enemies/Components/e_movement_component.tscn" id="3_xi3de"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_83xwh"]
+radius = 5.0
+height = 58.0
+
+[node name="bullet" type="Area2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_txtm8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_66xit")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_83xwh")
+
+[node name="DamageComponent" parent="." instance=ExtResource("2_aeimx")]
+
+[node name="E_AI" parent="." instance=ExtResource("2_11gub")]
+
+[node name="E_MovementComponent" parent="." instance=ExtResource("3_xi3de")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

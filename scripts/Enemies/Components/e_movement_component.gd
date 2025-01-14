@@ -1,7 +1,7 @@
 class_name e_MovementComponent extends Node2D
 
 
-@export var speed : float = 300.0
+@export var speed : float = 800.0
 var velocity : Vector2 = Vector2.ZERO
 
 
@@ -15,3 +15,4 @@ func move(delta: float):
 func update_velocity(direction: Vector2):
 	velocity = direction.normalized() * speed
 	#print("Updated Velocity: ", velocity)
+#move_component.update_velocity(direction.normalized() * bullet_speed)
