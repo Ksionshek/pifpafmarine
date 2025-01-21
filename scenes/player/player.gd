@@ -12,7 +12,7 @@ func _ready() -> void:
 	#e.x healthbar/hurtbox/ onhit animation/flash/shake
 	health_component.no_health.connect(func():
 		#Place for adding scores or anything after death of the player
-		print('PLayer.gd: no health signal')
+		print('Player.gd: no health signal')
 		
 	)
 	hurtbox_component.hurt.connect(func(hitbox: HitboxComponent):

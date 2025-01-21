@@ -21,4 +21,3 @@ shape = SubResource("RectangleShape2D_jfau2")
 
 [node name="MoveComponent" parent="." index="2" node_paths=PackedStringArray("actor")]
 actor = NodePath("..")
-velocity = Vector2(0, -500)
