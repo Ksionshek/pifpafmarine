@@ -1,15 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://cw0tghuh4cny1"]
+[gd_scene load_steps=14 format=3 uid="uid://cw0tghuh4cny1"]
 
 [ext_resource type="Texture2D" uid="uid://dsfseu8tw37e2" path="res://kenney_space-shooter-redux/PNG/playerShip2_orange.png" id="1_ari5f"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_wq5xx"]
-[ext_resource type="Script" path="res://scripts/Player/movement.gd" id="2_3ymq3"]
 [ext_resource type="PackedScene" uid="uid://bj4fec0dyc28f" path="res://scenes/player/Mouse/mouse_rotation_component.tscn" id="3_4py4s"]
-[ext_resource type="Script" path="res://scripts/Player/health.gd" id="3_e0xhp"]
-[ext_resource type="PackedScene" uid="uid://cwy3ch7eyvca2" path="res://scenes/Enemies/Components/weapon_component.tscn" id="5_xst3y"]
+[ext_resource type="Script" path="res://scripts/Components/move_input_component.gd" id="3_loktg"]
+[ext_resource type="Script" path="res://scripts/Components/fire_input_component.gd" id="4_k6670"]
+[ext_resource type="Resource" uid="uid://dml74pgj6lawh" path="res://scripts/Resources/ship_move_stats.tres" id="4_ullda"]
+[ext_resource type="PackedScene" uid="uid://dj1rgyrbtbkps" path="res://scenes/Components/move_component.tscn" id="7_s3wxf"]
+[ext_resource type="PackedScene" uid="uid://d24tb5emi3kmd" path="res://scenes/Components/hitbox_component.tscn" id="8_ta6qf"]
+[ext_resource type="PackedScene" uid="uid://dsi53sqk8iiuw" path="res://scenes/Components/hurt_component.tscn" id="9_gvu24"]
+[ext_resource type="PackedScene" uid="uid://dciay4sn2esks" path="res://scenes/Components/hurtbox_component.tscn" id="10_fw5v8"]
+[ext_resource type="Script" path="res://scripts/Components/spawner_component.gd" id="11_1suvi"]
+[ext_resource type="Script" path="res://scripts/Enemies/EnemyComponents/e_health_component.gd" id="11_utc0h"]
+[ext_resource type="PackedScene" uid="uid://cp247lmfvgle0" path="res://scenes/bullets/variants/bullet_v_1.tscn" id="12_vyyr3"]
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 2
-collision_mask = 53
+[node name="Player" type="Node2D" groups=["Player"]]
 script = ExtResource("1_wq5xx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,17 +22,36 @@ texture = ExtResource("1_ari5f")
 centered = false
 offset = Vector2(-56, -37)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-4, -34, 3, -36, 10, -18, 56, 6, 38, 36, 18, 31, 11, 39, -11, 39, -17, 31, -37, 36, -57, 6, -12, -17)
-
-[node name="PlayerMovment" type="Node2D" parent="."]
-script = ExtResource("2_3ymq3")
-speed = 600
-
 [node name="MouseRotationComponent" parent="." instance=ExtResource("3_4py4s")]
 
-[node name="HealthComponent" type="Node2D" parent="."]
-script = ExtResource("3_e0xhp")
+[node name="FireInputComponent" type="Node2D" parent="."]
+script = ExtResource("4_k6670")
 
-[node name="WeaponComponent" parent="." instance=ExtResource("5_xst3y")]
-position = Vector2(0, -40)
+[node name="MoveInputComponent" type="Node2D" parent="." node_paths=PackedStringArray("move_component")]
+script = ExtResource("3_loktg")
+move_stats = ExtResource("4_ullda")
+move_component = NodePath("../MoveComponent")
+
+[node name="MoveComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("7_s3wxf")]
+actor = NodePath("..")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("8_ta6qf")]
+collision_layer = 0
+
+[node name="HurtComponent" parent="." node_paths=PackedStringArray("health_component", "hurtbox_component") instance=ExtResource("9_gvu24")]
+health_component = NodePath("../HealthComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("10_fw5v8")]
+collision_mask = 0
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("11_utc0h")
+health = 100
+
+[node name="Pifpaf" type="Marker2D" parent="."]
+position = Vector2(0, -36)
+
+[node name="SpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("11_1suvi")
+scene = ExtResource("12_vyyr3")

@@ -1,27 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://b46fjjxng2sxc"]
+[gd_scene load_steps=5 format=3 uid="uid://1bcrkatr0vjg"]
 
-[ext_resource type="Texture2D" uid="uid://b7jx1ncoft614" path="res://kenney_space-shooter-redux/PNG/Meteors/meteorGrey_big4.png" id="1_p45ip"]
-[ext_resource type="Script" path="res://scripts/Enemies/Meteor/meteor.gd" id="1_ybnab"]
-[ext_resource type="PackedScene" uid="uid://cvimvj0644pi6" path="res://scenes/Enemies/Components/e_health_component.tscn" id="3_h3qte"]
-[ext_resource type="PackedScene" uid="uid://c0d1mipjimv7p" path="res://scenes/Enemies/Components/e_movement_component.tscn" id="4_6sgyw"]
-[ext_resource type="PackedScene" uid="uid://dpa2cinwc8km0" path="res://scenes/Enemies/Components/e_ai.tscn" id="5_18ean"]
+[ext_resource type="PackedScene" uid="uid://ckghgfodnnsi4" path="res://scenes/Enemies/enemy.tscn" id="1_rvo4j"]
+[ext_resource type="Texture2D" uid="uid://ck0qtrx2ganxk" path="res://kenney_space-shooter-redux/PNG/Meteors/meteorGrey_small1.png" id="2_7b4vw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oriex"]
-radius = 42.4264
+[sub_resource type="CircleShape2D" id="CircleShape2D_yw3h4"]
+radius = 15.0333
 
-[node name="Meteor" type="Area2D"]
-collision_layer = 4
-collision_mask = 10
-script = ExtResource("1_ybnab")
+[sub_resource type="CircleShape2D" id="CircleShape2D_j7wx8"]
+radius = 8.544
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_p45ip")
+[node name="Meteor" instance=ExtResource("1_rvo4j")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_oriex")
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_7b4vw")
 
-[node name="E_AI" parent="." instance=ExtResource("5_18ean")]
+[node name="HealthComponent" parent="." index="1"]
+health = 10
 
-[node name="E_HealthComponent" parent="." instance=ExtResource("3_h3qte")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_yw3h4")
 
-[node name="E_MovementComponent" parent="." instance=ExtResource("4_6sgyw")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_j7wx8")
+
+[node name="HurtComponent" parent="." index="4" node_paths=PackedStringArray("health_component", "hurtbox_component")]
+health_component = NodePath("../HealthComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
+
+[node name="MoveComponent" parent="." index="5" node_paths=PackedStringArray("actor")]
+actor = NodePath("..")

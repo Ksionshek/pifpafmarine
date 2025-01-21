@@ -1,4 +1,4 @@
-class_name Player
+class_name Enemy
 extends Node2D
 
 @onready var health_component: HealthComponent = $HealthComponent
@@ -11,8 +11,8 @@ func _ready() -> void:
 	#Thats the place to set all basic listners
 	#e.x healthbar/hurtbox/ onhit animation/flash/shake
 	health_component.no_health.connect(func():
-		#Place for adding scores or anything after death of the player
-		print('PLayer.gd: no health signal')
+		#Place for adding scores or anything after death of the enemy
+		print('Enemy.gd: no health signal')
 		
 	)
 	hurtbox_component.hurt.connect(func(hitbox: HitboxComponent):
@@ -20,10 +20,10 @@ func _ready() -> void:
 		#flash_component.flash()
 		#shake_component.tween_shake()
 		#variable_pitch_audio_stream_player.play_with_variance()
-		print("Player.gd: hurtbox.hurt connect")
+		print("Enemy.gd: hurtbox.hurt connect")
 	)
 	health_component.no_health.connect(queue_free)
 	hitbox_component.hit_hurtbox.connect(func():
-		#Place for applying dmg to actor. In this case enemy
-		print("Player gd: Player hit enemy")
+		#Place for applying dmg to player
+		print("Enemy gd: Enemy hit player")
 		)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dciay4sn2esks"]
+
+[ext_resource type="Script" path="res://scripts/Components/hurtbox_component.gd" id="1_tjh4d"]
+
+[node name="HurtboxComponent" type="Area2D"]
+collision_layer = 2
+collision_mask = 20
+script = ExtResource("1_tjh4d")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-4, -34, 3, -36, 10, -18, 56, 6, 38, 36, 18, 31, 11, 39, -11, 39, -17, 31, -37, 36, -57, 6, -12, -17)

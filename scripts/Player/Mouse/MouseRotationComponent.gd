@@ -13,7 +13,3 @@ func _process(delta: float) -> void:
 
 	#Rotate player to mouse - adding lerp for smoothing
 	get_parent().rotation = lerp_angle(get_parent().rotation, angle_to_mouse, rotation_speed * delta)
-	
-	
-func rad2deg(radians: float) -> float:
-	return radians * 180.0 / PI
