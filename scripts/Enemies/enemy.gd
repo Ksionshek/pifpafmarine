@@ -23,7 +23,11 @@ func _ready() -> void:
 		print("Enemy.gd: hurtbox.hurt connect")
 	)
 	health_component.no_health.connect(queue_free)
-	hitbox_component.hit_hurtbox.connect(func():
-		#Place for applying dmg to player
-		print("Enemy gd: Enemy hit player")
-		)
+	
+	hitbox_component.hit_hurtbox.connect(_auc)
+	
+func _auc(hurtbox: HurtboxComponent):
+	print("Enemy.gd funkcja auc ddziala")
+		
+		
+		

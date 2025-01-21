@@ -5,7 +5,7 @@ extends Area2D
 @export var damage = 1
 
 # Create a signal for when the hitbox hits a hurtbox
-signal hit_hurtbox()
+signal hit_hurtbox(hurtbox)
 
 func _ready():
 	# Connect on area entered to our hurtbox entered function
@@ -18,6 +18,6 @@ func _on_hurtbox_entered(hurtbox: HurtboxComponent):
 	# Make sure the hurtbox isn't invincible
 	if hurtbox.is_invincible: return
 	# Signal out that we hit a hurtbox (this is useful for destroying projectiles when they hit something)
-	hit_hurtbox.emit()
+	hit_hurtbox.emit(hurtbox)
 	# Have the hurtbox signal out that it was hit
 	hurtbox.hurt.emit(self)

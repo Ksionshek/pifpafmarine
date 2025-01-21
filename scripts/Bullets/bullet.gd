@@ -6,5 +6,6 @@ extends Node2D
 
 
 func _ready() -> void:
-	#Remove on touch with hurtbox
+	#Remove on touch with hurtbox. Unbind used to remove extra param. In this case we dont need hurtbox. The bullets
+	#is gone after a hit.
 	hitbox_component.hit_hurtbox.connect(queue_free.unbind(1))
