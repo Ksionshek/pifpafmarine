@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8xqffut61p4y"]
+
+[ext_resource type="Script" path="res://scripts/Components/flash_component.gd" id="1_lmkb0"]
+
+[node name="FlashComponent" type="Node"]
+script = ExtResource("1_lmkb0")

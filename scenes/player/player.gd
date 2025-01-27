@@ -5,6 +5,9 @@ extends Node2D
 @onready var move_component: MoveComponent = $MoveComponent
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
+@onready var scale_component: ScaleComponent = $ScaleComponent
+@onready var flash_component: FlashComponent = $FlashComponent
+
 
 
 func _ready() -> void:
@@ -16,14 +19,14 @@ func _ready() -> void:
 		
 	)
 	hurtbox_component.hurt.connect(func(hitbox: HitboxComponent):
-		#scale_component.tween_scale()
-		#flash_component.flash()
+		scale_component.tween_scale()
+		flash_component.flash()
 		#shake_component.tween_shake()
 		#variable_pitch_audio_stream_player.play_with_variance()
-		print("Player.gd: hurtbox.hurt connect")
+		print("Player.gd: got hurt")
 	)
-	health_component.no_health.connect(queue_free)
+	#health_component.no_health.connect(queue_free)
 	hitbox_component.hit_hurtbox.connect(_auc)
 	
 func _auc(hurtbox: HurtboxComponent):
-	print("Player.gd funkcja auc ddziala")
+	print("Player.gd hit someone")

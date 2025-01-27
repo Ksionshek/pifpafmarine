@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cw0tghuh4cny1"]
+[gd_scene load_steps=16 format=3 uid="uid://cw0tghuh4cny1"]
 
 [ext_resource type="Texture2D" uid="uid://dsfseu8tw37e2" path="res://kenney_space-shooter-redux/PNG/playerShip2_orange.png" id="1_ari5f"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_wq5xx"]
@@ -10,9 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://d24tb5emi3kmd" path="res://scenes/Components/hitbox_component.tscn" id="8_ta6qf"]
 [ext_resource type="PackedScene" uid="uid://dsi53sqk8iiuw" path="res://scenes/Components/hurt_component.tscn" id="9_gvu24"]
 [ext_resource type="PackedScene" uid="uid://dciay4sn2esks" path="res://scenes/Components/hurtbox_component.tscn" id="10_fw5v8"]
-[ext_resource type="Script" path="res://scripts/Components/spawner_component.gd" id="11_1suvi"]
 [ext_resource type="Script" path="res://scripts/Enemies/EnemyComponents/e_health_component.gd" id="11_utc0h"]
 [ext_resource type="PackedScene" uid="uid://cp247lmfvgle0" path="res://scenes/bullets/variants/bullet_v_1.tscn" id="12_vyyr3"]
+[ext_resource type="PackedScene" uid="uid://cargvcy1thpmb" path="res://scenes/Components/weapon_component.tscn" id="14_d54ih"]
+[ext_resource type="PackedScene" uid="uid://6sy21txb76ax" path="res://scenes/Components/scale_component.tscn" id="15_bbqfl"]
+[ext_resource type="PackedScene" uid="uid://b8xqffut61p4y" path="res://scenes/Components/flash_component.tscn" id="15_ni3vi"]
 
 [node name="Player" type="Node2D" groups=["Player"]]
 script = ExtResource("1_wq5xx")
@@ -49,9 +51,24 @@ collision_mask = 0
 script = ExtResource("11_utc0h")
 health = 100
 
-[node name="Pifpaf" type="Marker2D" parent="."]
-position = Vector2(0, -36)
+[node name="Pifpafs" type="Node2D" parent="."]
 
-[node name="SpawnerComponent" type="Node2D" parent="."]
-script = ExtResource("11_1suvi")
+[node name="CenterPifpaf" type="Marker2D" parent="Pifpafs" groups=["pifpaf"]]
+position = Vector2(0, -38)
+
+[node name="RightPifpaf" type="Marker2D" parent="Pifpafs" groups=["pifpaf"]]
+visible = false
+position = Vector2(54, 6)
+
+[node name="LeftPifpaf" type="Marker2D" parent="Pifpafs" groups=["pifpaf"]]
+visible = false
+position = Vector2(-56, 6)
+
+[node name="FlashComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("15_ni3vi")]
+sprite = NodePath("../Sprite2D")
+
+[node name="ScaleComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("15_bbqfl")]
+sprite = NodePath("../Sprite2D")
+
+[node name="WeaponComponent" parent="." instance=ExtResource("14_d54ih")]
 scene = ExtResource("12_vyyr3")

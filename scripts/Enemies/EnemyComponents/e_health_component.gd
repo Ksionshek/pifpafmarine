@@ -1,6 +1,7 @@
 class_name HealthComponent
 extends Node2D
 
+
 # Create the health variable and connect a setter
 @export var health: int = 1:
 	set(value):

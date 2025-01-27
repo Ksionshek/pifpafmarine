@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckghgfodnnsi4"]
+[gd_scene load_steps=9 format=3 uid="uid://ckghgfodnnsi4"]
 
 [ext_resource type="Script" path="res://scripts/Enemies/enemy.gd" id="1_7ix3l"]
 [ext_resource type="Script" path="res://scripts/Enemies/EnemyComponents/e_health_component.gd" id="2_4in7q"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scripts/Components/hitbox_component.gd" id="4_g3r5h"]
 [ext_resource type="Script" path="res://scripts/Components/hurt_component.gd" id="5_s1e25"]
 [ext_resource type="Script" path="res://scripts/Components/move_component.gd" id="6_xg1yp"]
+[ext_resource type="PackedScene" uid="uid://6sy21txb76ax" path="res://scenes/Components/scale_component.tscn" id="7_0obkj"]
+[ext_resource type="PackedScene" uid="uid://b8xqffut61p4y" path="res://scenes/Components/flash_component.tscn" id="8_8dkbh"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_7ix3l")
@@ -30,3 +32,9 @@ script = ExtResource("5_s1e25")
 
 [node name="MoveComponent" type="Node2D" parent="."]
 script = ExtResource("6_xg1yp")
+
+[node name="ScaleComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("7_0obkj")]
+sprite = NodePath("../Sprite2D")
+
+[node name="FlashComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("8_8dkbh")]
+sprite = NodePath("../Sprite2D")

@@ -6,23 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://1bcrkatr0vjg" path="res://scenes/Enemies/Meteor/meteor.tscn" id="4_iynbr"]
 
 [node name="Level1" type="Node2D"]
-position = Vector2(581, 347)
+position = Vector2(961, 546)
 script = ExtResource("1_3fvp6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
-follow_viewport_enabled = true
 
-[node name="BG" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(598, 234.5)
-scale = Vector2(10.6797, 6.71484)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_l2t3b")
 
 [node name="Player" parent="." instance=ExtResource("1_tg701")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="PlayerBullets" type="Node2D" parent="."]
-
 [node name="Meteor" parent="." instance=ExtResource("4_iynbr")]
-position = Vector2(-102, -195)
+position = Vector2(0, -382)

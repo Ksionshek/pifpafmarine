@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PifPafMarine"
-run/main_scene="res://scenes/Levels/Level1/level_1.tscn"
+run/main_scene="res://scenes/Game/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -25,13 +25,19 @@ GlobalSignals="*res://globals/GlobalSignals.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
-[editor_plugins]
+[file_customization]
 
-enabled=PackedStringArray("res://addons/ColorPreview/plugin.cfg", "res://addons/DragNDropNodes/plugin.cfg")
+folder_colors={
+"res://globals/": "red",
+"res://scenes/": "orange",
+"res://scripts/": "green",
+"res://sounds/": "yellow"
+}
 
 [global_group]
 
 Player="Just for enemy to find dir to him"
+pifpaf=""
 
 [input]
 
