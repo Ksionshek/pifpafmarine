@@ -7,7 +7,7 @@ extends Node2D
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
 @onready var scale_component: ScaleComponent = $ScaleComponent
 @onready var flash_component: FlashComponent = $FlashComponent
-
+@onready var power_ups_holder_component: PowerUpHolderComponent = $PowerUpsHolderComponent
 
 
 func _ready() -> void:

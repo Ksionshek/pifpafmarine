@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DamageBulletPowerUp" load_steps=3 format=3 uid="uid://d2hm6osj20ny8"]
+
+[ext_resource type="Script" path="res://scripts/Resources/PowerUps/DamageBulletPowerUp.gd" id="1_5u76i"]
+[ext_resource type="Texture2D" uid="uid://dwvr5f1mf0u8p" path="res://kenney_space-shooter-redux/PNG/Damage/playerShip1_damage1.png" id="2_rwds3"]
+
+[resource]
+script = ExtResource("1_5u76i")
+texture = ExtResource("2_rwds3")
+upgrade_text = "damage"

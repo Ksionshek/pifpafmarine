@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cw0tghuh4cny1"]
+[gd_scene load_steps=17 format=3 uid="uid://cw0tghuh4cny1"]
 
 [ext_resource type="Texture2D" uid="uid://dsfseu8tw37e2" path="res://kenney_space-shooter-redux/PNG/playerShip2_orange.png" id="1_ari5f"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_wq5xx"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cargvcy1thpmb" path="res://scenes/Components/weapon_component.tscn" id="14_d54ih"]
 [ext_resource type="PackedScene" uid="uid://6sy21txb76ax" path="res://scenes/Components/scale_component.tscn" id="15_bbqfl"]
 [ext_resource type="PackedScene" uid="uid://b8xqffut61p4y" path="res://scenes/Components/flash_component.tscn" id="15_ni3vi"]
+[ext_resource type="Script" path="res://scripts/Components/powerup_holder_component.gd" id="16_6cm55"]
 
 [node name="Player" type="Node2D" groups=["Player"]]
 script = ExtResource("1_wq5xx")
@@ -72,3 +73,6 @@ sprite = NodePath("../Sprite2D")
 
 [node name="WeaponComponent" parent="." instance=ExtResource("14_d54ih")]
 scene = ExtResource("12_vyyr3")
+
+[node name="PowerUpsHolderComponent" type="Node" parent="."]
+script = ExtResource("16_6cm55")

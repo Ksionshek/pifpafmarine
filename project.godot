@@ -72,3 +72,4 @@ fire={
 2d_physics/layer_1="Terrain"
 2d_physics/layer_2="Player_hurtbox"
 2d_physics/layer_3="Enemy_hurtbox"
+2d_physics/layer_4="Power_up"

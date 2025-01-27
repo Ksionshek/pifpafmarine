@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5fr5w7bkeglh"]
+[gd_scene load_steps=6 format=3 uid="uid://b5fr5w7bkeglh"]
 
 [ext_resource type="Script" path="res://scenes/Levels/Level1/level_1.gd" id="1_3fvp6"]
 [ext_resource type="PackedScene" uid="uid://cw0tghuh4cny1" path="res://scenes/player/player.tscn" id="1_tg701"]
 [ext_resource type="Texture2D" uid="uid://dgodnlbp85pq6" path="res://kenney_space-shooter-redux/Backgrounds/blue.png" id="2_l2t3b"]
 [ext_resource type="PackedScene" uid="uid://1bcrkatr0vjg" path="res://scenes/Enemies/Meteor/meteor.tscn" id="4_iynbr"]
+[ext_resource type="PackedScene" uid="uid://b5ujrkp2ahq6y" path="res://scenes/PowerUps/power_up.tscn" id="5_qmuii"]
 
 [node name="Level1" type="Node2D"]
 position = Vector2(961, 546)
@@ -26,3 +27,7 @@ texture = ExtResource("2_l2t3b")
 
 [node name="Meteor" parent="." instance=ExtResource("4_iynbr")]
 position = Vector2(0, -382)
+
+[node name="PowerUp" parent="." instance=ExtResource("5_qmuii")]
+position = Vector2(570, 263)
+needs_update = false
