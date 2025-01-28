@@ -29,6 +29,7 @@ offset = Vector2(-56, -37)
 
 [node name="FireInputComponent" type="Node2D" parent="."]
 script = ExtResource("4_k6670")
+fire_rate = 0.1
 
 [node name="MoveInputComponent" type="Node2D" parent="." node_paths=PackedStringArray("move_component")]
 script = ExtResource("3_loktg")

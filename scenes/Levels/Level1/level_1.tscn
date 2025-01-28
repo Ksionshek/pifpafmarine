@@ -30,3 +30,4 @@ position = Vector2(0, -382)
 
 [node name="PowerUp" parent="." instance=ExtResource("5_qmuii")]
 position = Vector2(570, 263)
+needs_update = false

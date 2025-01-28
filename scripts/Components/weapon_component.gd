@@ -6,7 +6,6 @@ extends Node2D
 @export var scene: PackedScene
 @onready var power_ups_holder_component: PowerUpHolderComponent = $"../PowerUpsHolderComponent"
 
-
 # Spawn an instance of the scene at a specific global position on a parent
 # By default the parent is the current "main" scene , but you can pass in
 # an alternative parent if you so choose.
