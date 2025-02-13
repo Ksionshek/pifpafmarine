@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpeedBulletPowerUp" load_steps=3 format=3 uid="uid://b6vrtn7fqoyua"]
+
+[ext_resource type="Script" path="res://scripts/Resources/PowerUps/SpeedBulletPowerUp.gd" id="1_imi30"]
+[ext_resource type="Texture2D" uid="uid://xm7bop6mnsqq" path="res://kenney_space-shooter-redux/PNG/Parts/wingRed_4.png" id="2_510n1"]
+
+[resource]
+script = ExtResource("1_imi30")
+amount = 100
+texture = ExtResource("2_510n1")
+upgrade_text = "Speed"

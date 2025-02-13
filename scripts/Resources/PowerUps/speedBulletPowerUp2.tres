@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpeedBulletPowerUp" load_steps=3 format=3 uid="uid://ci01cy37p5r2o"]
+
+[ext_resource type="Script" path="res://scripts/Resources/PowerUps/SpeedBulletPowerUp.gd" id="1_yagno"]
+[ext_resource type="Texture2D" uid="uid://w87yxsnqy5ay" path="res://kenney_space-shooter-redux/PNG/Effects/fire00.png" id="2_c4dwl"]
+
+[resource]
+script = ExtResource("1_yagno")
+amount = 200
+texture = ExtResource("2_c4dwl")
+upgrade_text = "BasePowerUp"

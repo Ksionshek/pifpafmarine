@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cw0tghuh4cny1"]
+[gd_scene load_steps=18 format=3 uid="uid://cw0tghuh4cny1"]
 
 [ext_resource type="Texture2D" uid="uid://dsfseu8tw37e2" path="res://kenney_space-shooter-redux/PNG/playerShip2_orange.png" id="1_ari5f"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_wq5xx"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dsi53sqk8iiuw" path="res://scenes/Components/hurt_component.tscn" id="9_gvu24"]
 [ext_resource type="PackedScene" uid="uid://dciay4sn2esks" path="res://scenes/Components/hurtbox_component.tscn" id="10_fw5v8"]
 [ext_resource type="Script" path="res://scripts/Enemies/EnemyComponents/e_health_component.gd" id="11_utc0h"]
+[ext_resource type="Script" path="res://scripts/Components/pifpafs.gd" id="12_21vd5"]
 [ext_resource type="PackedScene" uid="uid://cp247lmfvgle0" path="res://scenes/bullets/variants/bullet_v_1.tscn" id="12_vyyr3"]
 [ext_resource type="PackedScene" uid="uid://cargvcy1thpmb" path="res://scenes/Components/weapon_component.tscn" id="14_d54ih"]
 [ext_resource type="PackedScene" uid="uid://6sy21txb76ax" path="res://scenes/Components/scale_component.tscn" id="15_bbqfl"]
@@ -32,6 +33,7 @@ script = ExtResource("4_k6670")
 fire_rate = 0.1
 
 [node name="MoveInputComponent" type="Node2D" parent="." node_paths=PackedStringArray("move_component")]
+visible = false
 script = ExtResource("3_loktg")
 move_stats = ExtResource("4_ullda")
 move_component = NodePath("../MoveComponent")
@@ -54,6 +56,8 @@ script = ExtResource("11_utc0h")
 health = 100
 
 [node name="Pifpafs" type="Node2D" parent="."]
+visible = false
+script = ExtResource("12_21vd5")
 
 [node name="CenterPifpaf" type="Marker2D" parent="Pifpafs" groups=["pifpaf"]]
 position = Vector2(0, -38)

@@ -9,7 +9,7 @@ extends Node2D
 # Spawn an instance of the scene at a specific global position on a parent
 # By default the parent is the current "main" scene , but you can pass in
 # an alternative parent if you so choose.
-func spawn(global_spawn_position: Vector2 = global_position, mousePos: Vector2 = get_global_mouse_position(), parent: Node = get_tree().current_scene) -> Node:
+func shoot(global_spawn_position: Vector2 = global_position, mousePos: Vector2 = get_global_mouse_position(), parent: Node = get_tree().current_scene) -> Node:
 	assert(scene is PackedScene, "Error: The scene export was never set on this spawner component.")
 	
 	# Instance the scene
@@ -25,7 +25,7 @@ func spawn(global_spawn_position: Vector2 = global_position, mousePos: Vector2 =
 	#PowerUps Relevant Code
 	#Loop over all of the upgrades currently on player, and apply their upgades to the spawn bullet
 	###########################################
-	for power_up in power_ups_holder_component.upgrades:
+	for power_up in power_ups_holder_component.bullet_upgrades:
 		print("weaponComp.gd   power_up: " + str(power_up))
 		power_up.apply_upgrade(instance)
 	# Return the instance in case we want to perform any other operations
