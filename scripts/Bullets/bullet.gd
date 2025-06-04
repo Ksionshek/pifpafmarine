@@ -35,3 +35,7 @@ func _process(_delta: float) -> void:
 		is_marker_set = false
 	
 	move_component.velocity -= Vector2(direction * speed)
+
+#remove the bullets when they are not visible on screen
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()

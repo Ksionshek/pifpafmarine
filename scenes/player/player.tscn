@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://cw0tghuh4cny1"]
 
-[ext_resource type="Texture2D" uid="uid://dsfseu8tw37e2" path="res://kenney_space-shooter-redux/PNG/playerShip2_orange.png" id="1_ari5f"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_wq5xx"]
+[ext_resource type="Texture2D" uid="uid://b35vhm2osiogb" path="res://assets/Boat.png" id="2_yaexg"]
 [ext_resource type="PackedScene" uid="uid://bj4fec0dyc28f" path="res://scenes/player/Mouse/mouse_rotation_component.tscn" id="3_4py4s"]
 [ext_resource type="Script" path="res://scripts/Components/move_input_component.gd" id="3_loktg"]
 [ext_resource type="Script" path="res://scripts/Components/fire_input_component.gd" id="4_k6670"]
@@ -22,9 +22,9 @@
 script = ExtResource("1_wq5xx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ari5f")
+position = Vector2(-245, -278)
+texture = ExtResource("2_yaexg")
 centered = false
-offset = Vector2(-56, -37)
 
 [node name="MouseRotationComponent" parent="." instance=ExtResource("3_4py4s")]
 
@@ -33,7 +33,6 @@ script = ExtResource("4_k6670")
 fire_rate = 0.1
 
 [node name="MoveInputComponent" type="Node2D" parent="." node_paths=PackedStringArray("move_component")]
-visible = false
 script = ExtResource("3_loktg")
 move_stats = ExtResource("4_ullda")
 move_component = NodePath("../MoveComponent")

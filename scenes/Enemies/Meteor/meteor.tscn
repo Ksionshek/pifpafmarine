@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://1bcrkatr0vjg"]
+[gd_scene load_steps=6 format=3 uid="uid://1bcrkatr0vjg"]
 
 [ext_resource type="PackedScene" uid="uid://ckghgfodnnsi4" path="res://scenes/Enemies/enemy.tscn" id="1_rvo4j"]
-[ext_resource type="Texture2D" uid="uid://ck0qtrx2ganxk" path="res://kenney_space-shooter-redux/PNG/Meteors/meteorGrey_small1.png" id="2_7b4vw"]
+[ext_resource type="Texture2D" uid="uid://cxo802yycnbcn" path="res://addons/DragNDropNodes/icon.svg" id="2_873hp"]
+[ext_resource type="Script" path="res://scripts/Enemies/Meteor/MeteorAI.gd" id="3_0kkhx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yw3h4"]
 radius = 15.0333
@@ -12,7 +13,9 @@ radius = 8.544
 [node name="Meteor" instance=ExtResource("1_rvo4j")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_7b4vw")
+position = Vector2(-0.5, 2)
+scale = Vector2(0.0550661, 0.0572687)
+texture = ExtResource("2_873hp")
 
 [node name="HealthComponent" parent="." index="1"]
 health = 10
@@ -29,3 +32,6 @@ hurtbox_component = NodePath("../HurtboxComponent")
 
 [node name="MoveComponent" parent="." index="5" node_paths=PackedStringArray("actor")]
 actor = NodePath("..")
+
+[node name="MeteorAI" type="Node" parent="." index="8"]
+script = ExtResource("3_0kkhx")

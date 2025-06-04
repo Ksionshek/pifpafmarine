@@ -1,9 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5ujrkp2ahq6y"]
+[gd_scene load_steps=8 format=3 uid="uid://b5ujrkp2ahq6y"]
 
 [ext_resource type="Script" path="res://scripts/Resources/PowerUps/PowerUp.gd" id="1_1g5se"]
-[ext_resource type="Resource" uid="uid://b6vrtn7fqoyua" path="res://scripts/Resources/PowerUps/speed_v1.tres" id="2_iaryp"]
-[ext_resource type="Texture2D" uid="uid://xm7bop6mnsqq" path="res://kenney_space-shooter-redux/PNG/Parts/wingRed_4.png" id="3_e50fm"]
+[ext_resource type="Script" path="res://scripts/Resources/PowerUps/SpeedBulletPowerUp.gd" id="2_hmevb"]
+[ext_resource type="Texture2D" uid="uid://b35vhm2osiogb" path="res://assets/Boat.png" id="3_u8fwy"]
 [ext_resource type="PackedScene" uid="uid://dj1rgyrbtbkps" path="res://scenes/Components/move_component.tscn" id="4_o7c1u"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_osln1"]
+load_path = "res://.godot/imported/wingRed_4.png-a51087cc3cf996b24204de6733507c7e.ctex"
+
+[sub_resource type="Resource" id="Resource_2hya0"]
+script = ExtResource("2_hmevb")
+amount = 100
+texture = SubResource("CompressedTexture2D_osln1")
+upgrade_text = "Speed"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3e8v"]
 
@@ -13,21 +22,21 @@ collision_mask = 2
 script = ExtResource("1_1g5se")
 upgrade_label = NodePath("Label")
 sprite = NodePath("Sprite2D")
-power_up = ExtResource("2_iaryp")
-needs_update = true
+power_up = SubResource("Resource_2hya0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_d3e8v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_e50fm")
+position = Vector2(-4.76837e-07, 10)
+scale = Vector2(0.0390625, 0.0390625)
+texture = ExtResource("3_u8fwy")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -8.0
-offset_top = -10.0
-offset_right = 32.0
-offset_bottom = 13.0
+offset_left = -12.0
+offset_top = -13.0
+offset_right = 12.0
 theme_override_font_sizes/font_size = 8
 text = "Speed"
 

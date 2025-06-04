@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="StageData" load_steps=4 format=3 uid="uid://cf5ctl1tm4uc2"]
+
+[ext_resource type="Script" path="res://data/WaveDefinitions/stage.gd" id="1_jj8ar"]
+[ext_resource type="Script" path="res://data/WaveDefinitions/wave.gd" id="2_d0usg"]
+[ext_resource type="Resource" uid="uid://c5i1jn7url236" path="res://data/WaveDefinitions/meteor2.tres" id="3_a6qp5"]
+
+[resource]
+script = ExtResource("1_jj8ar")
+waves = Array[ExtResource("2_d0usg")]([ExtResource("3_a6qp5"), ExtResource("3_a6qp5")])

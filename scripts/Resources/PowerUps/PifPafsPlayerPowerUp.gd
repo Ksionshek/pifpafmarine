@@ -8,7 +8,7 @@ enum _tier {SINGEL = 1, DOUBLE = 2, TRIPLE = 3}
 func apply_upgrade(player: Player):
 	var pifpafs = player.pifpafs.get_children()
 	match tier:
-		_tier.SINGEL:
+		_tier.SINGEL: 
 			pifpafs[0].visible = true
 			pifpafs[1].visible = false
 			pifpafs[2].visible = false

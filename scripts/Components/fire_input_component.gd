@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func fire_lasers(mousePos: Vector2) -> void:
 	for power_up in power_ups_holder_component.pifpafs_upgrades:
-		print("fic.gd Power_up: " + str(power_up.upgrade_text))
+		#print("fic.gd Power_up: " + str(power_up.upgrade_text))
 		power_up.apply_upgrade(get_parent())
 		
 	for marker in pifpafs.get_children():

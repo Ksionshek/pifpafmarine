@@ -1,0 +1,138 @@
+[gd_scene load_steps=25 format=3 uid="uid://b5fr5w7bkeglh"]
+
+[ext_resource type="Script" path="res://scenes/Levels/Level1/level_1.gd" id="1_3fvp6"]
+[ext_resource type="PackedScene" uid="uid://cw0tghuh4cny1" path="res://scenes/player/player.tscn" id="1_tg701"]
+[ext_resource type="Texture2D" uid="uid://cr1ax5r42yfbg" path="res://assets/bg_dani.png" id="2_32a1k"]
+[ext_resource type="Script" path="res://data/WaveDefinitions/stage.gd" id="2_nwhfm"]
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="2_rewnu"]
+[ext_resource type="Resource" uid="uid://cfcu4scbvny00" path="res://data/WaveDefinitions/StagesData/stage1_1.tres" id="3_7anhg"]
+[ext_resource type="Resource" uid="uid://cf5ctl1tm4uc2" path="res://data/WaveDefinitions/StagesData/stage1_2.tres" id="4_d2vhc"]
+[ext_resource type="PackedScene" uid="uid://b5ujrkp2ahq6y" path="res://scenes/PowerUps/power_up.tscn" id="4_snjvk"]
+[ext_resource type="Shader" path="res://shaders/water_v2.gdshader" id="4_yemee"]
+[ext_resource type="Resource" uid="uid://c802shx6jed4d" path="res://data/WaveDefinitions/StagesData/stage1_3.tres" id="5_btpq5"]
+[ext_resource type="Script" path="res://_scenes/_UI/stage_into_UI.gd" id="6_hre2q"]
+[ext_resource type="Script" path="res://scripts/Resources/PowerUps/PifPafsPlayerPowerUp.gd" id="7_gqagl"]
+[ext_resource type="PackedScene" uid="uid://cjdavdyspr8aq" path="res://scenes/EnemySpawner/enemy_nest.tscn" id="8_0aywa"]
+[ext_resource type="Texture2D" uid="uid://chj3dwxdxec3a" path="res://icon.svg" id="8_jt6qh"]
+[ext_resource type="Script" path="res://_scenes/_levels/stage_manager.gd" id="10_pqae6"]
+
+[sub_resource type="Gradient" id="Gradient_7ybny"]
+colors = PackedColorArray(0.1496, 0.55109, 0.718831, 0, 0.687676, 0.993686, 0.969197, 0.607843)
+metadata/_snap_enabled = true
+metadata/_snap_count = 8
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bcbsa"]
+noise_type = 5
+frequency = 0.0653
+offset = Vector3(-250, 0, 0)
+fractal_type = 2
+fractal_octaves = 3
+fractal_lacunarity = 5.0
+domain_warp_enabled = true
+domain_warp_type = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bdb66"]
+seamless = true
+seamless_blend_skirt = 0.385
+color_ramp = SubResource("Gradient_7ybny")
+noise = SubResource("FastNoiseLite_bcbsa")
+
+[sub_resource type="Gradient" id="Gradient_cxybr"]
+colors = PackedColorArray(0.683961, 0.789043, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_o840e"]
+noise_type = 2
+seed = 25
+frequency = 0.0255
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7l7gb"]
+seamless = true
+color_ramp = SubResource("Gradient_cxybr")
+noise = SubResource("FastNoiseLite_o840e")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4sji6"]
+resource_local_to_scene = true
+shader = ExtResource("2_rewnu")
+shader_parameter/scroll1 = Vector2(0.05, 0.05)
+shader_parameter/scroll2 = Vector2(-0.05, -0.05)
+shader_parameter/distortion_strength = 0.2
+shader_parameter/tone_color = Color(0.11624, 0.783929, 0.959813, 1)
+shader_parameter/top_color = Color(0.0248834, 0.68061, 0.782892, 1)
+shader_parameter/light_start = 0.177
+shader_parameter/light_end = 0.692
+shader_parameter/noise1 = SubResource("NoiseTexture2D_bdb66")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_7l7gb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrgcf"]
+shader = ExtResource("4_yemee")
+shader_parameter/OCTAVE = 5
+shader_parameter/mulscale = 15.82
+shader_parameter/height = 0.6
+shader_parameter/tide = 0.21
+shader_parameter/foamthickness = 0.37
+shader_parameter/timescale = 1.0
+shader_parameter/waterdeep = 0.3
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+
+[sub_resource type="Resource" id="Resource_e1hdu"]
+script = ExtResource("7_gqagl")
+tier = 3
+texture = ExtResource("8_jt6qh")
+upgrade_text = "DANI1KC"
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_3fvp6")
+stages = Array[ExtResource("2_nwhfm")]([ExtResource("3_7anhg"), ExtResource("4_d2vhc"), ExtResource("5_btpq5")])
+
+[node name="StageIntoUI" type="CanvasLayer" parent="."]
+script = ExtResource("6_hre2q")
+
+[node name="CenterContainer" type="CenterContainer" parent="StageIntoUI"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StageLabel" type="Label" parent="StageIntoUI/CenterContainer"]
+layout_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+follow_viewport_scale = 32.981
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_4sji6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_32a1k")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_vrgcf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_32a1k")
+
+[node name="Player" parent="." instance=ExtResource("1_tg701")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.03, 1.03)
+
+[node name="PowerUp" parent="." instance=ExtResource("4_snjvk")]
+position = Vector2(280, -380)
+power_up = SubResource("Resource_e1hdu")
+
+[node name="StageManager" type="Node" parent="."]
+script = ExtResource("10_pqae6")
+
+[node name="EnemyNest" parent="StageManager" instance=ExtResource("8_0aywa")]
+
+[connection signal="stage_completed" from="StageManager" to="." method="_on_stage_manager_stage_completed"]
