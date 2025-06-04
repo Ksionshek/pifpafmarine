@@ -8,7 +8,7 @@ extends Node
 @export var scale_amount = Vector2(1.5, 1.5)
 
 # Export the scale duration
-@export var scale_duration: = 0.4
+@export var scale_duration := 0.4
 
 # This is the function that will activate this component
 func tween_scale() -> void:

@@ -8,10 +8,10 @@ extends Node
 @export var node: Node2D
 
 # Export the shake amount
-@export var shake_amount: = 2.0
+@export var shake_amount := 2.0
 
 # Export the shake duration
-@export var shake_duration: = 0.4
+@export var shake_duration := 0.4
 
 # Store the current amount we are shaking the node (this value will decrease over time)
 var shake = 0
