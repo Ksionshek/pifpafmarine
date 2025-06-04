@@ -7,7 +7,7 @@ const FLASH_MATERIAL = preload("res://effects/white_flash_material.tres")
 @export var sprite: CanvasItem
 
 # Export a duration for the flash
-@export var flash_duration: = 0.2
+@export var flash_duration := 0.2
 
 # We need to store the original sprite's material so we can reset it after the flash
 var original_sprite_material: Material
